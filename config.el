@@ -138,3 +138,11 @@
 (map! :leader
       :desc "Writable abort changes"
       "d f" #'wdired-abort-changes)
+
+;; Dired
+(add-hook 'dired-mode-hook #'my-dired-mode-hook)
+
+(defun my-dired-mode-hook ()
+  "Custom `dired-mode' config called via `dired-mode-hook'."
+  (when (display-graphic-p)
+    (all-the-icons-dired-mode 1)))
